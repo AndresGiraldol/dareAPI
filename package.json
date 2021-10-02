@@ -1,0 +1,40 @@
+{
+  "name": "dareapi",
+  "version": "1.0.0",
+  "description": "midleware to insurance api rest",
+  "main": "index.js",
+  "scripts": {
+    "build": "npm run lint && tsc",
+    "dev": "ts-node-dev src/index.ts",
+    "lint": "eslint src/*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AndresGiraldol/dareAPI.git"
+  },
+  "author": "AGiraldo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AndresGiraldol/dareAPI/issues"
+  },
+  "homepage": "https://github.com/AndresGiraldol/dareAPI#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.12",
+    "@types/express": "^4.17.13",
+    "@types/morgan": "^1.9.3",
+    "@types/node": "^16.10.2",
+    "@typescript-eslint/eslint-plugin": "^4.32.0",
+    "@typescript-eslint/parser": "^4.32.0",
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.24.2",
+    "ts-node-dev": "^1.1.8",
+    "typescript": "^4.4.3"
+  }
+}
