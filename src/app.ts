@@ -2,15 +2,19 @@ import express from 'express';
 import morgan from 'morgan';
 import cors from 'cors';
 import LoginRoutes from './api/login/login.routes';
+import PoliciesRoutes from './api/policies/policies.routes';
 
 class App {
   private app: express.Application;
 
   private loginRoutes: LoginRoutes;
 
+  private policiesRoutes: PoliciesRoutes;
+
   constructor() {
     this.app = express();
     this.loginRoutes = new LoginRoutes();
+    this.policiesRoutes = new PoliciesRoutes();
     this.settings();
     this.middlewares();
     this.routes();
@@ -33,6 +37,8 @@ class App {
     });
 
     this.app.use('/login', this.loginRoutes.getRoutes());
+
+    this.app.use('/policies', this.policiesRoutes.getRoutes());
   }
 
   public listen(): void {

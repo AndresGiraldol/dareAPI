@@ -1,6 +1,4 @@
 /* eslint-disable class-methods-use-this */
-import * as JWT from 'jsonwebtoken';
-
 class JwtManager {
   public parseJwt(token: string) {
     const base64Url = token.split('.')[1];
@@ -13,14 +11,6 @@ class JwtManager {
     );
 
     return JSON.parse(jsonPayload);
-  }
-
-  public sing(payload: string | object | Buffer, secret: JWT.Secret, options?: JWT.SignOptions) {
-    return JWT.sign(payload, secret, options);
-  }
-
-  public verify(token: string, secret: JWT.Secret, callback: JWT.VerifyOptions) {
-    return JWT.verify(token, secret, callback);
   }
 }
 
