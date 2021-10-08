@@ -1,6 +1,11 @@
 /* eslint-disable class-methods-use-this */
 class JwtManager {
-  public parseJwt(token: string) {
+  /**
+   * This method extract the payload info from the JWT
+   * @param token JWT
+   * @returns JSON with the payload info
+   */
+  public parseJwt(token: string): any {
     const base64Url = token.split('.')[1];
     const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
     const jsonPayload = decodeURIComponent(

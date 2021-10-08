@@ -13,6 +13,7 @@
   "rules": {
     "linebreak-style": ["error", "windows"],
     "eol-last": 0,
+    "max-len": "warn",
     "no-multiple-empty-lines": ["error", { "max": 1, "maxEOF": 0 }],
     "import/extensions": [
         "error",

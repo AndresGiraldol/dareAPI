@@ -1,5 +1,6 @@
 
 import { Router } from 'express';
+import validateHasAuthMiddleware from '../../middlewares/validateHeader';
 import ClientsController from './clients.controller';
 
 class ClientsRoutes {
@@ -14,10 +15,17 @@ class ClientsRoutes {
     }
 
     private policiesRoutes() {
-      this.router.get('/', (res, req) => this.controller.getClient(res, req));
+      this.router.get('/',
+        validateHasAuthMiddleware,
+        (res, req, next) => this.controller.getClients(res, req, next));
 
-      this.router.get('/:id', (res, req) => this.controller.getClientById(res, req));
-      this.router.get('/:id/policies', (res, req) => this.controller.getPoliciesByClient(res, req));
+      this.router.get('/:id',
+        validateHasAuthMiddleware,
+        (res, req, next) => this.controller.getClientById(res, req, next));
+
+      this.router.get('/:id/policies',
+        validateHasAuthMiddleware,
+        (res, req, next) => this.controller.getPoliciesByClient(res, req, next));
     }
 
     public getRoutes(): Router {

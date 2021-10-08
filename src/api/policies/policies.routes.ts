@@ -1,4 +1,8 @@
-import { Router } from 'express';
+/* eslint-disable max-len */
+import {
+  NextFunction, Request, Response, Router,
+} from 'express';
+import validateHasAuthMiddleware from '../../middlewares/validateHeader';
 import PoliciesController from './policies.controller';
 
 class PoliciesRoutes {
@@ -13,9 +17,13 @@ class PoliciesRoutes {
     }
 
     private policiesRoutes() {
-      this.router.get('/', (res, req) => this.controller.getPolicies(res, req));
+      this.router.get('/',
+        validateHasAuthMiddleware,
+        (req: Request, res: Response, next: NextFunction) => this.controller.getPolicies(req, res, next));
 
-      this.router.get('/:id', (res, req) => this.controller.getPolicyById(res, req));
+      this.router.get('/:id',
+        validateHasAuthMiddleware,
+        (req: Request, res: Response, next: NextFunction) => this.controller.getPolicyById(req, res, next));
     }
 
     public getRoutes(): Router {

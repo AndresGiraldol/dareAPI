@@ -13,8 +13,8 @@ class LoginRoutes {
     }
 
     private loginRoutes() {
-      this.router.post('/', (req, res) => {
-        this.controller.validateToken(req, res);
+      this.router.post('/', (req, res, next) => {
+        this.controller.validateToken(req, res, next);
       });
     }
 

@@ -4,6 +4,8 @@ import cors from 'cors';
 import LoginRoutes from './api/login/login.routes';
 import PoliciesRoutes from './api/policies/policies.routes';
 import ClientsRoutes from './api/clients/clients.routes';
+import config from './config/config';
+import errorMiddleware from './middlewares/errorMiddleware';
 
 class App {
   private app: express.Application;
@@ -22,10 +24,11 @@ class App {
     this.settings();
     this.middlewares();
     this.routes();
+    this.initializeErrorHandling();
   }
 
   private settings() {
-    this.app.set('port', process.env.PORT || 3000);
+    this.app.set('port', config.SERVER.PORT);
   }
 
   private middlewares() {
@@ -33,6 +36,10 @@ class App {
     this.app.use(express.urlencoded({ extended: false }));
     this.app.use(express.json());
     this.app.use(cors());
+  }
+
+  private initializeErrorHandling() {
+    this.app.use(errorMiddleware);
   }
 
   private routes() {
