@@ -14,7 +14,9 @@ run `npm install`
 set .env file with the env var 
 
 DARE: endpoint dare api
+
 PORT: port where deploy the app, 3000 by default
+
 run `npm run dev`. and your project will be deployed in the following url `http://localhost:{PORT}/`.
 
 ## unit testing
