@@ -4,7 +4,7 @@ dotenv.config();
 
 export default {
   SERVER: {
-    PORT: process.env.SERVER_PORT || 3000,
+    PORT: process.env.PORT || 3000,
   },
   DARE_API: {
     URL: process.env.DARE || 'http://localhost:5000/',
