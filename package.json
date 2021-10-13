@@ -4,7 +4,7 @@
   "description": "midleware to insurance api rest",
   "main": "index.js",
   "scripts": {
-    "build": "npm run lint && tsc",
+    "build": "tsc",
     "dev": "ts-node-dev src/index.ts",
     "lint": "eslint ./src/**/",
     "test": "jest",
